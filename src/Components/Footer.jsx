@@ -16,7 +16,7 @@ const Footer = () => {
         <p className="font-bold">
           Chill Gamer
           <br />
-          Providing reliable service since 2023
+          Providing reliable services since 2023
         </p>
         <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
       </aside>

@@ -7,6 +7,7 @@ import Watchlist from "../Pages/Watchlist";
 import DetailedReview from "../Pages/DetailedReview";
 import Register from "./../Pages/Register";
 import Private from "../PrivateRoutes/Private";
+import AllReviews from "../Pages/AllReviews";
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/all-reviews",
-        element: <h2>All Reviews</h2>,
+        element: <AllReviews />,
+        loader: () =>
+          fetch("https://chill-gamer-server-rafee.vercel.app/reviews"),
       },
       {
         path: "/add-review",

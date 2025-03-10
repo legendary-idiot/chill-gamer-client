@@ -25,7 +25,12 @@ const Login = () => {
         navigate("/");
       })
       .catch((error) => {
-        // console.log("Error: ", error);
+        if (error.code === "auth/invalid-credential") {
+          Swal.fire({
+            title: "Invalid Credential!",
+            icon: "error",
+          });
+        }
       });
   };
 
