@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
-  const user = "ABCD";
+  const { user, logOutUser } = useContext(AuthContext);
   const links = (
     <>
       <li>
@@ -11,7 +14,7 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/brands" className="font-medium text-lg">
+        <NavLink to="/all-reviews" className="font-medium text-lg">
           All Reviews
         </NavLink>
       </li>
@@ -22,11 +25,20 @@ const Navbar = () => {
           </NavLink>
         </li>
       )}
-      <li>
-        <NavLink to="/about-dev" className="font-medium text-lg">
-          Update Review
-        </NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/my-reviews" className="font-medium text-lg">
+            My Reviews
+          </NavLink>
+        </li>
+      )}
+      {user && (
+        <li>
+          <NavLink to="/my-watchlist" className="font-medium text-lg">
+            Game Watchlist
+          </NavLink>
+        </li>
+      )}
     </>
   );
   return (
@@ -77,7 +89,13 @@ const Navbar = () => {
                 className="size-10 object-cover border rounded-full border-gray-400"
               />
               <button
-                onClick={() => console.log("Log Out Completed")}
+                onClick={() =>
+                  logOutUser()
+                    .then(() => toast.success("Logged Out Successfully!"))
+                    .catch((error) =>
+                      toast.error("Sorry, something went wrong!")
+                    )
+                }
                 className="btn"
               >
                 Log Out
@@ -88,6 +106,9 @@ const Navbar = () => {
               <FaUserCircle className="size-10" />
               <Link to="/login" className="btn">
                 Login
+              </Link>
+              <Link to="/register" className="hidden sm:btn">
+                Register
               </Link>
             </>
           )}

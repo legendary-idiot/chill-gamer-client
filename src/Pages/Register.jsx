@@ -1,10 +1,12 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const navigate = useNavigate();
   const {
     createUserWithEmailPass,
     updateUserData,
@@ -19,11 +21,12 @@ const Register = () => {
     const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
     const isValid = passwordRegex.test(password);
+
     if (!isValid) {
       toast.error(
-        "Password must contain at least one uppercase letter, one lowercase letter, one digit, and be at least 6 characters long!"
+        "Password must contain at least one uppercase letter, one lowercase letter, one digit, and be at least 8 characters long!"
       );
       return;
     }
@@ -33,7 +36,12 @@ const Register = () => {
         console.log(userCredential.user);
         updateUserData(name, photo)
           .then(() => {
-            toast.success("Account Created Successfully!");
+            Swal.fire({
+              title: "Account Created Successfully!",
+              icon: "success",
+            });
+            e.target.reset();
+            navigate("/");
           })
           .catch((error) => {
             toast.error("Sorry! Something Went Wrong");
@@ -61,8 +69,8 @@ const Register = () => {
 
       <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow border border-indigo-200 my-8 mx-auto">
         <form className="card-body space-y-6" onSubmit={formHandler}>
-          <div className="form-control">
-            <label className="label">
+          <div className="form-control space-y-2">
+            <label className="label text-black">
               <span className="label-text">Name</span>
             </label>
             <input
@@ -73,9 +81,9 @@ const Register = () => {
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control space-y-2">
             <label className="label">
-              <span className="label-text">Photo URL</span>
+              <span className="label-text text-black">Photo URL</span>
             </label>
             <input
               type="text"
@@ -85,9 +93,9 @@ const Register = () => {
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control space-y-2">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text text-black">Email</span>
             </label>
             <input
               type="email"
@@ -97,9 +105,9 @@ const Register = () => {
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control space-y-2">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text text-black">Password</span>
             </label>
             <input
               type="password"

@@ -5,6 +5,8 @@ import Login from "./../Pages/Login";
 import AddReview from "../Pages/AddReview";
 import Watchlist from "../Pages/Watchlist";
 import DetailedReview from "../Pages/DetailedReview";
+import Register from "./../Pages/Register";
+import Private from "../PrivateRoutes/Private";
 
 export const router = createBrowserRouter([
   {
@@ -16,24 +18,48 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/all-reviews",
+        element: <h2>All Reviews</h2>,
+      },
+      {
         path: "/add-review",
-        element: <AddReview />,
+        element: (
+          <Private>
+            <AddReview />
+          </Private>
+        ),
       },
       {
         path: "/my-reviews",
-        element: <h2>My Reviews</h2>,
+        element: (
+          <Private>
+            <h2>My Reviews</h2>
+          </Private>
+        ),
       },
       {
         path: "/update-review",
-        element: <h2>Update Reviews</h2>,
+        element: (
+          <Private>
+            <h2>Update Reviews</h2>
+          </Private>
+        ),
       },
       {
         path: "/my-watchlist",
-        element: <Watchlist />,
+        element: (
+          <Private>
+            <Watchlist />
+          </Private>
+        ),
       },
       {
         path: "/reviews/:id",
-        element: <DetailedReview />,
+        element: (
+          <Private>
+            <DetailedReview />
+          </Private>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://chill-gamer-server-rafee.vercel.app/reviews/${params.id}`
@@ -45,7 +71,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <h2>Register</h2>,
+        element: <Register />,
       },
     ],
   },
