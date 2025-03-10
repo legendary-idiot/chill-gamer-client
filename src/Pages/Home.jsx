@@ -1,15 +1,16 @@
 import React from "react";
 import HeroBanner from "../Components/HeroBanner";
+import News from "../Components/News";
+import Newsletter from "../Components/Newsletter";
+import HighestRatedGames from "../Components/HighestRatedGames";
 
 const Home = () => {
   return (
     <div>
       <HeroBanner />
-      <h2>Highest Rated Games</h2>
-      <h2>Popular Games</h2>
-      <h2>Trending News</h2>
-      <h2>Newsletter</h2>
-      <div></div>
+      <HighestRatedGames />
+      <News />
+      <Newsletter />
     </div>
   );
 };

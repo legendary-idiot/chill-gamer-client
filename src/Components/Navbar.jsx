@@ -2,7 +2,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
-  const user = "";
+  const user = "ABCD";
   const links = (
     <>
       <li>
@@ -12,19 +12,19 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to="/brands" className="font-medium text-lg">
-          Brands
+          All Reviews
         </NavLink>
       </li>
       {user && (
         <li>
-          <NavLink to="/profile" className="font-medium text-lg">
-            Profile
+          <NavLink to="/add-review" className="font-medium text-lg">
+            Add Review
           </NavLink>
         </li>
       )}
       <li>
         <NavLink to="/about-dev" className="font-medium text-lg">
-          About Dev
+          Update Review
         </NavLink>
       </li>
     </>
@@ -76,7 +76,10 @@ const Navbar = () => {
                 alt="User Image"
                 className="size-10 object-cover border rounded-full border-gray-400"
               />
-              <button onClick={handleLogOut} className="btn">
+              <button
+                onClick={() => console.log("Log Out Completed")}
+                className="btn"
+              >
                 Log Out
               </button>
             </>

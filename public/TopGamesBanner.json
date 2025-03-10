@@ -1,0 +1,74 @@
+[
+  {
+    "title": "The Forest",
+    "description": "A survival horror game where you fend off cannibals and explore mysterious caves.",
+    "address": "https://store.steampowered.com/app/242760/The_Forest",
+    "img": "https://i.ibb.co.com/GvcKNbWG/image.png"
+  },
+  {
+    "title": "Minecraft",
+    "description": "A sandbox game where players can build, explore, and survive in a blocky world.",
+    "address": "https://www.minecraft.net/en-us",
+    "img": "https://i.ibb.co.com/cSzNKy6J/image.png"
+  },
+  {
+    "title": "Among Us",
+    "description": "A multiplayer party game where you and your friends work together to find the Impostor among the crew.",
+    "address": "https://store.steampowered.com/app/945360/Among_Us",
+    "img": "https://i.ibb.co.com/Dgk9C7Nt/image.png"
+  },
+  {
+    "title": "Fortnite",
+    "description": "A battle royale game where 100 players fight to be the last one standing.",
+    "address": "https://store.epicgames.com/en-US/p/fortnite",
+    "img": "https://i.ibb.co.com/CfgCTYP/image.png"
+  },
+  {
+    "title": "The Witcher 3: Wild Hunt",
+    "description": "An open-world RPG where you play as Geralt of Rivia, a monster hunter, in a vast medieval fantasy world.",
+    "address": "https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt",
+    "img": "https://i.ibb.co.com/6JNqNGZC/image.png"
+  },
+  {
+    "title": "Grand Theft Auto V",
+    "description": "An open-world action-adventure game where you can explore, complete missions, and commit crimes.",
+    "address": "https://store.steampowered.com/app/3240220/Grand_Theft_Auto_V_Enhanced/",
+    "img": "https://i.ibb.co.com/k64fCMTN/image.png"
+  },
+  {
+    "title": "Apex Legends",
+    "description": "A free-to-play battle royale game where players compete to be the last squad standing.",
+    "address": "https://store.steampowered.com/app/1172470/Apex_Legends/",
+    "img": "https://i.ibb.co.com/rKW5GR8r/image.png"
+  },
+  {
+    "title": "Call of Duty: Warzone",
+    "description": "A free-to-play battle royale game set in the Call of Duty universe with fast-paced combat and tactical gameplay.",
+    "address": "https://store.steampowered.com/app/1962663/Call_of_Duty_Warzone/",
+    "img": "https://i.ibb.co.com/zHFqhbLD/image.png"
+  },
+  {
+    "title": "Valorant",
+    "description": "A tactical first-person shooter that blends precise gunplay and unique character abilities.",
+    "address": "https://store.epicgames.com/en-US/p/valorant",
+    "img": "https://i.ibb.co.com/kgJvQxpb/image.png"
+  },
+  {
+    "title": "Overwatch 2",
+    "description": "A team-based first-person shooter with colorful heroes and unique abilities, offering diverse gameplay strategies.",
+    "address": "https://store.steampowered.com/app/2357570/Overwatch_2/",
+    "img": "https://i.ibb.co.com/8n5ZqT1j/image.png"
+  },
+  {
+    "title": "League of Legends",
+    "description": "A multiplayer online battle arena (MOBA) where two teams of five players compete to destroy each other's Nexus.",
+    "address": "https://store.epicgames.com/en-US/p/league-of-legends",
+    "img": "https://i.ibb.co.com/Qv1TWZkM/image.png"
+  },
+  {
+    "title": "Rocket League",
+    "description": "A vehicular soccer game where players control rocket-powered cars to score goals.",
+    "address": "https://store.epicgames.com/en-US/p/rocket-league",
+    "img": "https://i.ibb.co.com/6RcTwJx1/image.png"
+  }
+]

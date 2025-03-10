@@ -1,6 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "../Layouts/Root";
 import Home from "../Pages/Home";
+import Login from "./../Pages/Login";
+import AddReview from "../Pages/AddReview";
+import Watchlist from "../Pages/Watchlist";
+import DetailedReview from "../Pages/DetailedReview";
 
 export const router = createBrowserRouter([
   {
@@ -12,24 +16,32 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/add-reviews",
-        element: <h2>Add Reviews</h2>,
+        path: "/add-review",
+        element: <AddReview />,
       },
       {
         path: "/my-reviews",
         element: <h2>My Reviews</h2>,
       },
       {
-        path: "/update-reviews",
+        path: "/update-review",
         element: <h2>Update Reviews</h2>,
       },
       {
         path: "/my-watchlist",
-        element: <h2>My Watchlist</h2>,
+        element: <Watchlist />,
+      },
+      {
+        path: "/reviews/:id",
+        element: <DetailedReview />,
+        loader: ({ params }) =>
+          fetch(
+            `https://chill-gamer-server-rafee.vercel.app/reviews/${params.id}`
+          ),
       },
       {
         path: "/login",
-        element: <h2>Login</h2>,
+        element: <Login />,
       },
       {
         path: "/register",

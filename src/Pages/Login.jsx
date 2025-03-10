@@ -1,28 +1,29 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
-import { AuthContext } from "../Providers/AuthProvider";
+// import { AuthContext } from "../Providers/AuthProvider";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signInWithEmailPass, signInWithGoogleAuth, resetPassword } =
-    useContext(AuthContext);
-  const navigate = useNavigate();
+  // const { signInWithEmailPass, signInWithGoogleAuth, resetPassword } =
+  //   useContext(AuthContext);
+  // const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+
   const formHandler = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    signInWithEmailPass(email, password)
-      .then((userData) => {
-        toast.success("Logged In Successfully!");
-        e.target.reset();
-        navigate("/");
-      })
-      .catch((error) => {
-        // console.log("Error: ", error);
-      });
+    // signInWithEmailPass(email, password)
+    //   .then((userData) => {
+    //     toast.success("Logged In Successfully!");
+    //     e.target.reset();
+    //     navigate("/");
+    //   })
+    //   .catch((error) => {
+    //     // console.log("Error: ", error);
+    //   });
   };
 
   // Password Reset Handler
@@ -33,16 +34,16 @@ const Login = () => {
     document.getElementById("password-reset-form").classList.add("hidden");
     document.getElementById("confirm-text").classList.remove("hidden");
 
-    resetPassword(email)
-      .then(() => {
-        location.replace("https://mail.google.com/");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // console.log("Error Code: ", errorCode);
-        // console.log("Error Message: ", errorMessage);
-      });
+    // resetPassword(email)
+    //   .then(() => {
+    //     location.replace("https://mail.google.com/");
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     // console.log("Error Code: ", errorCode);
+    //     // console.log("Error Message: ", errorMessage);
+    //   });
   };
 
   return (
@@ -68,7 +69,7 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="email"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full focus-within:outline-none"
               required
             />
           </div>
@@ -80,7 +81,7 @@ const Login = () => {
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="password"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full focus-within:outline-none"
               required
             />
             {showPassword ? (
@@ -160,7 +161,7 @@ const Login = () => {
                   type="email"
                   name="email"
                   placeholder="email"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full focus-within:outline-none"
                   required
                 />
               </div>

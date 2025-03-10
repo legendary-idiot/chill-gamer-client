@@ -1,8 +1,16 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const HeroBanner = () => {
+  const [cardsData, setCardsData] = useState([]);
+  useEffect(() => {
+    fetch("../TopGamesBanner.json")
+      .then((response) => response.json())
+      .then((data) => setCardsData(data));
+  }, []);
   var settings = {
     dots: true,
     infinite: true,
@@ -40,26 +48,28 @@ const HeroBanner = () => {
   };
 
   return (
-    <div className="slider-container max-w-5xl mx-auto">
+    <div className="slider-container max-w-4xl mx-auto my-8">
       <Slider {...settings}>
-        <div className="p-8 bg-emerald-300 text-black text-center">
-          <h3>1</h3>
-        </div>
-        <div className="p-8 bg-emerald-300 text-black text-center">
-          <h3>2</h3>
-        </div>
-        <div className="p-8 bg-emerald-300 text-black text-center">
-          <h3>3</h3>
-        </div>
-        <div className="p-8 bg-emerald-300 text-black text-center">
-          <h3>4</h3>
-        </div>
-        <div className="p-8 bg-emerald-300 text-black text-center">
-          <h3>5</h3>
-        </div>
-        <div className="p-8 bg-emerald-300 text-black text-center">
-          <h3>6</h3>
-        </div>
+        {cardsData.map((card, idx) => {
+          return (
+            <div
+              key={idx}
+              className="p-2 text-black text-center cursor-pointer hover:scale-105"
+            >
+              <Link to={card.address} className="block" target="_blank">
+                <img
+                  src={card.img}
+                  alt={card.title}
+                  className="w-full h-[280px] object-cover rounded-md"
+                />
+                <h3 className="text-2xl font-bold text-emerald-500 mt-2">
+                  {card.title}
+                </h3>
+                <p>{card.description}</p>
+              </Link>
+            </div>
+          );
+        })}
       </Slider>
     </div>
   );
