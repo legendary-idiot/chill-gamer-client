@@ -1,11 +1,29 @@
 import { Rating } from "@smastrom/react-rating";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const DetailedReview = () => {
   const review = useLoaderData();
-  const user = {
-    name: "Shafayath Jamil Rafi",
-    email: "shafayathj@gmail.com",
+  const { user } = useContext(AuthContext);
+  const handleWatchList = () => {
+    const data = { userEmail: user.email, review };
+    fetch("https://chill-gamer-server-rafee.vercel.app/watch-list", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        Swal.fire({
+          title: "Added to Watch List!",
+          icon: "success",
+        });
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -27,12 +45,12 @@ const DetailedReview = () => {
         <div className="flex items-center gap-4">
           <div className="avatar avatar-placeholder">
             <div className="bg-neutral text-neutral-content w-12 rounded-full">
-              <span className="text-3xl">{user.name[0]}</span>
+              <span className="text-3xl">{review.username[0]}</span>
             </div>
           </div>
           <div className="space-y-1">
-            <p className="font-light">Reviewed By: {user.name}</p>
-            <p className="font-light">{user.email}</p>
+            <p className="font-light">Reviewed By: {review.username}</p>
+            <p className="font-light">{review.email}</p>
           </div>
         </div>
         <Rating
@@ -40,7 +58,10 @@ const DetailedReview = () => {
           value={parseInt(review.rating)}
           readOnly
         />
-        <button className="btn btn-lg text-white border-none bg-linear-to-r from-cyan-500 to-blue-500 hover:bg-linear-to-r/srgb hover:from-indigo-500 hover:to-teal-400">
+        <button
+          className="btn btn-lg text-white border-none bg-linear-to-r from-cyan-500 to-blue-500 hover:bg-linear-to-r/srgb hover:from-indigo-500 hover:to-teal-400"
+          onClick={handleWatchList}
+        >
           Add to Watchlist
         </button>
       </div>

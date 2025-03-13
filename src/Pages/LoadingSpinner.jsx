@@ -1,6 +1,6 @@
 const LoadingSpinner = () => {
   return (
-    <div className="my-12 flex justify-center items-center">
+    <div className="my-12 flex justify-center items-center h-screen">
       <span className="loading loading-infinity w-20"></span>
     </div>
   );

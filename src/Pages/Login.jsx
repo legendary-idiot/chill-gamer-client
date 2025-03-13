@@ -57,13 +57,11 @@ const Login = () => {
   return (
     <div className="my-8">
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-center">
-          Welcome Back, Savvy Shopper!
-        </h2>
+        <h2 className="text-2xl font-bold text-center">Welcome Back, Gamer!</h2>
         <p className="text-base w-[90%] sm:w-[70%] mx-auto text-center">
-          Login to unlock exclusive savings, personalized deals, and a seamless
-          shopping experience across all your favorite brands. Enter your
-          details to continue enjoying unbeatable discounts!
+          Log in to pick up where you left off—exploring game reviews, sharing
+          your insights, and connecting with our passionate gaming community.
+          Let's continue the adventure!
         </p>
       </div>
 

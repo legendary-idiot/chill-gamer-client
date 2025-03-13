@@ -1,11 +1,9 @@
-import { useContext } from "react";
-import { FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Providers/AuthProvider";
-const AddReview = () => {
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
+const UpdateReview = () => {
+  const data = useLoaderData();
+  const navigate = useNavigate();
   const formHandler = (e) => {
     e.preventDefault();
     const gameCover = e.target.gameCover.value;
@@ -26,8 +24,8 @@ const AddReview = () => {
       email,
       username,
     };
-    fetch("https://chill-gamer-server-rafee.vercel.app/reviews", {
-      method: "POST",
+    fetch(`https://chill-gamer-server-rafee.vercel.app/reviews/${data._id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -35,8 +33,11 @@ const AddReview = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        e.target.reset();
-        navigate("/reviews");
+        Swal.fire({
+          title: "Review Updated Successfully!",
+          icon: "success",
+        });
+        navigate("/my-reviews");
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -63,6 +64,7 @@ const AddReview = () => {
               type="text"
               name="gameCover"
               placeholder="Enter Game Cover Image URL"
+              defaultValue={data.gameCover}
               className="input input-bordered w-full focus-within:outline-none"
               required
             />
@@ -75,6 +77,7 @@ const AddReview = () => {
               type="text"
               name="gameTitle"
               placeholder="Enter Game Title"
+              defaultValue={data.gameTitle}
               className="input input-bordered w-full focus-within:outline-none"
               required
             />
@@ -87,6 +90,7 @@ const AddReview = () => {
               type="text"
               name="publishingYear"
               placeholder="Publishing Year"
+              defaultValue={data.publishingYear}
               className="input input-bordered w-full focus-within:outline-none"
               required
             />
@@ -96,7 +100,7 @@ const AddReview = () => {
               <span className="label-text">Genre</span>
             </label>
             <select
-              defaultValue="Action"
+              defaultValue={data.genre}
               name="genre"
               className="select focus-within:outline-none w-full"
             >
@@ -112,7 +116,7 @@ const AddReview = () => {
               <span className="label-text">Rating</span>
             </label>
             <select
-              defaultValue="1 Star"
+              defaultValue={data.rating}
               name="rating"
               className="select focus-within:outline-none w-full"
             >
@@ -130,6 +134,7 @@ const AddReview = () => {
             <textarea
               name="review"
               className="textarea w-full focus-within:outline-none"
+              defaultValue={data.review}
               placeholder="Write Your Review Here"
             ></textarea>
           </div>
@@ -140,11 +145,10 @@ const AddReview = () => {
             <input
               type="email"
               name="email"
+              defaultValue={data.email}
               placeholder="Email"
-              defaultValue={user?.email}
               className="input input-bordered w-full focus-within:outline-none"
-              required
-              disabled={!!user}
+              disabled
             />
           </div>
           <div className="form-control space-y-2">
@@ -154,11 +158,10 @@ const AddReview = () => {
             <input
               type="text"
               name="username"
+              defaultValue={data.username}
               placeholder="Username"
-              defaultValue={user?.displayName}
               className="input input-bordered w-full focus-within:outline-none"
-              required
-              disabled={!!user}
+              disabled
             />
           </div>
           <div className="form-control">
@@ -170,4 +173,4 @@ const AddReview = () => {
   );
 };
 
-export default AddReview;
+export default UpdateReview;

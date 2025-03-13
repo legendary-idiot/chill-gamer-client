@@ -33,7 +33,6 @@ const Register = () => {
 
     createUserWithEmailPass(email, password)
       .then((userCredential) => {
-        console.log(userCredential.user);
         updateUserData(name, photo)
           .then(() => {
             Swal.fire({
@@ -58,12 +57,12 @@ const Register = () => {
     <div className="my-8">
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-center">
-          Join the Savings Revolution!
+          Join the Chill Gamer Community!
         </h2>
         <p className="text-base w-[90%] sm:w-[70%] mx-auto text-center">
-          Creating your account is the first step to enjoying incredible savings
-          and a seamless shopping experience with all your favorite brands.
-          Don&apos;t miss out—register today and start saving big!
+          Join the Chill Gamer family and be a part of our thriving community by
+          writing reviews, rating your favorite games, and discovering new
+          gaming experiences with like-minded players.
         </p>
       </div>
 

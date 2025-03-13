@@ -8,11 +8,15 @@ import DetailedReview from "../Pages/DetailedReview";
 import Register from "./../Pages/Register";
 import Private from "../PrivateRoutes/Private";
 import AllReviews from "../Pages/AllReviews";
+import MyReviews from "../Pages/MyReviews";
+import UpdateReview from "../Pages/UpdateReview";
+import ErrorPage from "./../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -36,17 +40,21 @@ export const router = createBrowserRouter([
         path: "/my-reviews",
         element: (
           <Private>
-            <h2>My Reviews</h2>
+            <MyReviews />
           </Private>
         ),
       },
       {
-        path: "/update-review",
+        path: "/update-review/:id",
         element: (
           <Private>
-            <h2>Update Reviews</h2>
+            <UpdateReview />
           </Private>
         ),
+        loader: ({ params }) =>
+          fetch(
+            `https://chill-gamer-server-rafee.vercel.app/reviews/${params.id}`
+          ),
       },
       {
         path: "/my-watchlist",
