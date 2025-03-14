@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import Lottie from "lottie-react";
 import reviewAnimation from "../assets/ReviewAnimation.json";
+import Swal from "sweetalert2";
 
 const AddReview = () => {
   const { user } = useContext(AuthContext);
@@ -39,6 +40,10 @@ const AddReview = () => {
       .then((response) => response.json())
       .then((data) => {
         e.target.reset();
+        Swal.fire({
+          title: "Review Added Successfully!",
+          icon: "success",
+        });
         navigate("/all-reviews");
       })
       .catch((error) => {
