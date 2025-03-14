@@ -39,7 +39,7 @@ const AddReview = () => {
       .then((response) => response.json())
       .then((data) => {
         e.target.reset();
-        navigate("/reviews");
+        navigate("/all-reviews");
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -56,7 +56,7 @@ const AddReview = () => {
       </div>
       <div className="grid md:grid-cols-2 gap-4 w-10/12 mx-auto my-4">
         <Lottie animationData={reviewAnimation} loop={true} className="" />
-        <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow border border-indigo-200 my-8 mx-auto">
+        <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow border border-indigo-300 my-8 mx-auto">
           <form className="card-body space-y-3" onSubmit={formHandler}>
             <div className="form-control space-y-2">
               <label className="label font-medium text-base-content">
