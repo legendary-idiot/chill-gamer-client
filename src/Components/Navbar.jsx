@@ -96,7 +96,7 @@ const Navbar = () => {
                       toast.error("Sorry, something went wrong!")
                     )
                 }
-                className="btn"
+                className="btn btn-accent"
               >
                 Log Out
               </button>
@@ -104,10 +104,10 @@ const Navbar = () => {
           ) : (
             <>
               <FaUserCircle className="size-10" />
-              <Link to="/login" className="btn">
+              <Link to="/login" className="btn btn-accent">
                 Login
               </Link>
-              <Link to="/register" className="hidden sm:btn">
+              <Link to="/register" className="hidden sm:btn sm:btn-accent">
                 Register
               </Link>
             </>

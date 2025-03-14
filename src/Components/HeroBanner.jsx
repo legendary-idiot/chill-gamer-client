@@ -48,7 +48,7 @@ const HeroBanner = () => {
   };
 
   return (
-    <div className="slider-container max-w-4xl mx-auto my-8">
+    <div className="slider-container w-10/12 sm:max-w-4xl mx-auto my-8">
       <Slider {...settings}>
         {cardsData.map((card, idx) => {
           return (
@@ -65,7 +65,7 @@ const HeroBanner = () => {
                 <h3 className="text-2xl font-bold text-emerald-500 mt-2">
                   {card.title}
                 </h3>
-                <p>{card.description}</p>
+                <p className="text-base-content">{card.description}</p>
               </Link>
             </div>
           );

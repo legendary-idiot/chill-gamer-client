@@ -29,7 +29,7 @@ const News = () => {
                   alt={news.tag}
                   className="w-full h-full rounded-md object-cover"
                 />
-                <figcaption className="absolute bottom-2 left-2 opacity-80 bg-gray-200 px-2 py-1 rounded">
+                <figcaption className="absolute bottom-2 left-2 opacity-80 bg-gray-200 px-2 py-1 rounded text-accent-content">
                   {news.tag}
                 </figcaption>
               </figure>
@@ -38,7 +38,7 @@ const News = () => {
                   {news.title}
                 </h3>
                 <p className="text-xl">{news.description}</p>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-base-content">
                   By <span className="font-semibold">{news.author}</span>
                 </p>
                 <Link

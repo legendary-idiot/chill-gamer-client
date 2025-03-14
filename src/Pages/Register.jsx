@@ -44,12 +44,12 @@ const Register = () => {
           })
           .catch((error) => {
             toast.error("Sorry! Something Went Wrong");
-            // console.log("Error: ", error);
+            setError(error.code);
           });
       })
       .catch((error) => {
         setError(error.code);
-        //console.log("Error Code: ", errorCode);
+        toast.error("Sorry! Something Went Wrong");
       });
   };
 
@@ -69,7 +69,7 @@ const Register = () => {
       <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow border border-indigo-200 my-8 mx-auto">
         <form className="card-body space-y-6" onSubmit={formHandler}>
           <div className="form-control space-y-2">
-            <label className="label text-black">
+            <label className="label text-base-content">
               <span className="label-text">Name</span>
             </label>
             <input
@@ -82,7 +82,7 @@ const Register = () => {
           </div>
           <div className="form-control space-y-2">
             <label className="label">
-              <span className="label-text text-black">Photo URL</span>
+              <span className="label-text text-base-content">Photo URL</span>
             </label>
             <input
               type="text"
@@ -94,7 +94,7 @@ const Register = () => {
           </div>
           <div className="form-control space-y-2">
             <label className="label">
-              <span className="label-text text-black">Email</span>
+              <span className="label-text text-base-content">Email</span>
             </label>
             <input
               type="email"
@@ -106,7 +106,7 @@ const Register = () => {
           </div>
           <div className="form-control space-y-2">
             <label className="label">
-              <span className="label-text text-black">Password</span>
+              <span className="label-text text-base-content">Password</span>
             </label>
             <input
               type="password"

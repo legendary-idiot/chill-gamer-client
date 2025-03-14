@@ -40,7 +40,6 @@ const AuthProvider = ({ children }) => {
   // Google Login Function
   const googleProvider = new GoogleAuthProvider();
   const signInWithGoogleAuth = () => {
-    setLoading(true);
     const result = signInWithPopup(auth, googleProvider)
       .then((result) => {
         const name = result.user.displayName;

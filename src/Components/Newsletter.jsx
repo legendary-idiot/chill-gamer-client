@@ -1,9 +1,9 @@
 const Newsletter = () => {
   return (
-    <div className="bg-amber-200 mt-10">
+    <div className="my-10 shadow bg-accent-content">
       <div className="w-11/12 mx-auto px-6 sm:px-10 py-16 text-center space-y-2">
-        <h2 className="text-3xl font-bold">Join our newsletter</h2>
-        <p className="text-xl font-medium">
+        <h2 className="text-3xl font-bold text-white">Join our newsletter</h2>
+        <p className="text-xl font-medium text-white">
           get weekly access to our reviews, news, and more
         </p>
         <div className="mt-6 grid grid-cols-4 md:w-1/2 mx-auto">

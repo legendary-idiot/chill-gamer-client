@@ -56,7 +56,7 @@ const AddReview = () => {
       <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow border border-indigo-200 my-8 mx-auto">
         <form className="card-body space-y-3" onSubmit={formHandler}>
           <div className="form-control space-y-2">
-            <label className="label font-medium text-black">
+            <label className="label font-medium text-base-content">
               <span className="label-text">Game Cover URL</span>
             </label>
             <input
@@ -68,7 +68,7 @@ const AddReview = () => {
             />
           </div>
           <div className="form-control space-y-2">
-            <label className="label font-medium text-black">
+            <label className="label font-medium text-base-content">
               <span className="label-text">Game Title</span>
             </label>
             <input
@@ -80,7 +80,7 @@ const AddReview = () => {
             />
           </div>
           <div className="form-control space-y-2">
-            <label className="label font-medium text-black">
+            <label className="label font-medium text-base-content">
               <span className="label-text">Publishing Year</span>
             </label>
             <input
@@ -92,7 +92,7 @@ const AddReview = () => {
             />
           </div>
           <div className="form-control space-y-2">
-            <label className="label font-medium text-black">
+            <label className="label font-medium text-base-content">
               <span className="label-text">Genre</span>
             </label>
             <select
@@ -108,7 +108,7 @@ const AddReview = () => {
             </select>
           </div>
           <div className="form-control space-y-2">
-            <label className="label font-medium text-black">
+            <label className="label font-medium text-base-content">
               <span className="label-text">Rating</span>
             </label>
             <select
@@ -124,7 +124,7 @@ const AddReview = () => {
             </select>
           </div>
           <div className="form-control space-y-2">
-            <label className="label font-medium text-black">
+            <label className="label font-medium text-base-content">
               <span className="label-text">Review Description</span>
             </label>
             <textarea
@@ -134,7 +134,7 @@ const AddReview = () => {
             ></textarea>
           </div>
           <div className="form-control space-y-2">
-            <label className="label font-medium text-black">
+            <label className="label font-medium text-base-content">
               <span className="label-text">Email</span>
             </label>
             <input
@@ -148,7 +148,7 @@ const AddReview = () => {
             />
           </div>
           <div className="form-control space-y-2">
-            <label className="label font-medium text-black">
+            <label className="label font-medium text-base-content">
               <span className="label-text">Username</span>
             </label>
             <input
