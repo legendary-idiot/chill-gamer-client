@@ -12,3 +12,8 @@
   background-color: cadetblue !important;
   border-radius: 50%;
 }
+
+.active {
+  background: rgba(0, 139, 139, 0.767);
+  color: white;
+}

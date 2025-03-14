@@ -72,7 +72,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl text-accent">
+        <Link to="/" className="btn btn-ghost text-xl text-emerald-500">
           Chill Gamer
         </Link>
       </div>

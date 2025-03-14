@@ -7,10 +7,16 @@ const HighestRatedGames = () => {
   useEffect(() => {
     fetch("https://chill-gamer-server-rafee.vercel.app/reviews")
       .then((response) => response.json())
-      .then((data) => setGames(data));
+      .then((data) => {
+        const sortByHighRating = [...data].sort(
+          (a, b) => parseInt(b.rating) - parseInt(a.rating)
+        );
+        setGames(sortByHighRating);
+      });
   }, []);
+
   return (
-    <div className="w-11/12 mx-auto my-10">
+    <div className="w-11/12 mx-auto my-10 animate__animated animate__fadeInRightBig animate__delay-4s">
       <h2 className="text-center text-3xl font-bold">Highest Rated Games</h2>
       <p className="text-center text-lg my-4 sm:w-[80%] mx-auto">
         Explore the pinnacle of gaming excellence with our top-rated titles.
@@ -18,7 +24,7 @@ const HighestRatedGames = () => {
         they're the best!
       </p>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {games.map((game) => (
+        {games?.slice(0, 6)?.map((game) => (
           <div
             key={game._id}
             className="max-w-[800px] h-[450px] rounded-md relative"
