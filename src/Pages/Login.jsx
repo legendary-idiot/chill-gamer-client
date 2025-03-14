@@ -67,9 +67,9 @@ const Login = () => {
 
       <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow border border-indigo-200 my-8 mx-auto">
         <form className="card-body space-y-6" onSubmit={formHandler}>
-          <div className="form-control">
+          <div className="form-control space-y-1">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text text-base-content">Email</span>
             </label>
             <input
               type="email"
@@ -79,9 +79,9 @@ const Login = () => {
               required
             />
           </div>
-          <div className="form-control relative">
+          <div className="form-control relative space-y-1">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text text-base-content">Password</span>
             </label>
             <input
               type={showPassword ? "text" : "password"}
@@ -110,7 +110,7 @@ const Login = () => {
                 onClick={() =>
                   document.getElementById("password_reset_modal").showModal()
                 }
-                className="label-text-alt link link-hover text-gray-700"
+                className="label-text-alt link link-hover text-base-content"
               >
                 Forgot password?
               </button>
